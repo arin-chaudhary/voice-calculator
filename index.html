@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>✨ Super Special Calculator ✨</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+    <div class="calculator-container">
+      <div class="header">
+        <div class="title">✨ Super Special Calculator ✨</div>
+        <div class="subtitle">Made with ❤️ by Arin</div>
+      </div>
+
+      <div class="display" id="display">0</div>
+
+      <div class="emoji-result" id="emojiResult"></div>
+
+      <div class="advanced-buttons">
+        <button class="advanced-btn" onclick="calculatePower()">x²</button>
+        <button class="advanced-btn" onclick="calculateSqrt()">√</button>
+        <button class="advanced-btn" onclick="calculateFactorial()">n!</button>
+        <button class="advanced-btn" onclick="generateRandom()">🎲</button>
+        <button class="advanced-btn" onclick="temperatureConverter()">
+          🌡️
+        </button>
+        <button class="advanced-btn" onclick="currencyConverter()">💱</button>
+        <button class="quiz-mode" onclick="startQuiz()">🧠 Quiz</button>
+        <button class="voice-btn" onclick="startVoiceInput()">🎤</button>
+      </div>
+
+      <div class="buttons-grid">
+        <button class="button clear" onclick="clearDisplay()">C</button>
+        <button class="button special" onclick="addToDisplay('(')">(</button>
+        <button class="button special" onclick="addToDisplay(')')">)</button>
+        <button class="button operator" onclick="addToDisplay('/')">÷</button>
+
+        <button class="button number" onclick="addToDisplay('7')">7</button>
+        <button class="button number" onclick="addToDisplay('8')">8</button>
+        <button class="button number" onclick="addToDisplay('9')">9</button>
+        <button class="button operator" onclick="addToDisplay('*')">×</button>
+
+        <button class="button number" onclick="addToDisplay('4')">4</button>
+        <button class="button number" onclick="addToDisplay('5')">5</button>
+        <button class="button number" onclick="addToDisplay('6')">6</button>
+        <button class="button operator" onclick="addToDisplay('-')">-</button>
+
+        <button class="button number" onclick="addToDisplay('1')">1</button>
+        <button class="button number" onclick="addToDisplay('2')">2</button>
+        <button class="button number" onclick="addToDisplay('3')">3</button>
+        <button class="button operator" onclick="addToDisplay('+')">+</button>
+
+        <button class="button number" onclick="addToDisplay('0')">0</button>
+        <button class="button number" onclick="addToDisplay('.')">.</button>
+        <button class="button equals" onclick="calculate()">=</button>
+      </div>
+
+      <div class="history" id="history">
+        <div style="text-align: center; color: #999">Calculation History</div>
+      </div>
+    </div>
+
+    <script src="maths.js"></script>
+  </body>
+</html>
