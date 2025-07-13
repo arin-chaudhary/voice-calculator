@@ -1,12 +1,9 @@
-// ✨ Super Special Calculator with Advanced Features ✨
-
 let currentInput = "0";
 let calculationHistory = [];
 let currentTheme = "light";
 let quizMode = false;
 let currentQuiz = null;
 
-// Sound effects (using Web Audio API)
 function playSound(frequency = 440, duration = 100) {
   const audioContext = new (window.AudioContext || window.webkitAudioContext)();
   const oscillator = audioContext.createOscillator();
@@ -27,8 +24,6 @@ function playSound(frequency = 440, duration = 100) {
   oscillator.start(audioContext.currentTime);
   oscillator.stop(audioContext.currentTime + duration / 1000);
 }
-
-// Display functions
 function updateDisplay() {
   document.getElementById("display").textContent = currentInput;
 }
@@ -50,26 +45,16 @@ function clearDisplay() {
   updateDisplay();
   document.getElementById("emojiResult").textContent = "";
 }
-
-// Basic calculations
 function calculate() {
   try {
     playSound(600, 100);
-
-    // Replace display symbols with JavaScript operators
     let expression = currentInput.replace(/×/g, "*").replace(/÷/g, "/");
-
-    // Validate expression
     if (!/^[0-9+\-*/().\s]+$/.test(expression)) {
       throw new Error("Invalid expression");
     }
 
     let result = eval(expression);
-
-    // Add to history
     addToHistory(`${currentInput} = ${result}`);
-
-    // Show emoji reaction
     showEmojiReaction(result);
 
     currentInput = result.toString();
@@ -322,8 +307,6 @@ function processVoiceInput(transcript) {
     .replace("divided by", "/")
     .replace("equals", "=")
     .replace(/\s/g, "");
-
-  // Extract numbers and operators
   const numbers = expression.match(/\d+/g);
   const operators = expression.match(/[+\-*/]/g);
 
@@ -335,8 +318,6 @@ function processVoiceInput(transcript) {
     showError("Could not understand voice input! 😅");
   }
 }
-
-// Theme toggle
 function toggleTheme() {
   currentTheme = currentTheme === "light" ? "dark" : "light";
   document.body.style.background =
@@ -347,8 +328,6 @@ function toggleTheme() {
   document.querySelector(".theme-toggle").textContent =
     currentTheme === "dark" ? "☀️" : "🌙";
 }
-
-// Emoji reactions
 function showEmojiReaction(result) {
   const emojiResult = document.getElementById("emojiResult");
   let emoji = "😊";
@@ -368,16 +347,12 @@ function showEmojiReaction(result) {
     emojiResult.textContent = "";
   }, 2000);
 }
-
-// Error handling
 function showError(message) {
   document.getElementById("emojiResult").textContent = message;
   setTimeout(() => {
     document.getElementById("emojiResult").textContent = "";
   }, 3000);
 }
-
-// History management
 function addToHistory(calculation) {
   calculationHistory.unshift(calculation);
   if (calculationHistory.length > 10) {
@@ -399,7 +374,6 @@ function updateHistory() {
   });
 }
 
-// Keyboard support
 document.addEventListener("keydown", (event) => {
   const key = event.key;
 
