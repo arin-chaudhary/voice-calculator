@@ -5,7 +5,6 @@ A modern, feature-rich calculator built with HTML, CSS, and JavaScript. This pro
 ### CSS- Cursor AI
 
 ![Calculator Preview](https://img.shields.io/badge/Status-Live-brightgreen)
-![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
 ## 🚀 Features
